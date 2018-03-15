@@ -23,6 +23,18 @@ def createCentroids(k,datadict):
             centroids_count += 1
     return centroids
 
+#Read file
+def readFile(fname):
+    f = open(fname)
+    lines = f.readlines()
+    n = len(lines)
+    dataDict = {}
+    for i in range(n):
+        cols = lines[i].split()
+        vector = [float(cols[4]),float(cols[5])]
+        dataDict[i+1] = vector
+    return dataDict
+
 def createClusters(k,centroids,datadict,repeats):
     for apass in range(repeats):
         print("****PASS",apass,"****")
@@ -63,7 +75,7 @@ def createClusters(k,centroids,datadict,repeats):
 # Cluster analysis
 
 def clusterAnalysis(datafile):
-    examdict = readfile(datafile)
+    examdict = readFile(datafile)
     examcentroids = createCentroids(5,examdict)
     examclusters = createClusters(5, examcentroids , examdict ,3)
     return examclusters
