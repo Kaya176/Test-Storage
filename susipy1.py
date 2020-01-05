@@ -1,3 +1,4 @@
+#테스트를 위한 별 의미없는 주석이다. 
 import openpyxl
 import turtle
 ex = openpyxl.load_workbook('Susi_2014.xlsx')
